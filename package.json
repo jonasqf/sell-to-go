@@ -12,6 +12,8 @@
     "@emotion/react": "^11.9.3",
     "@emotion/server": "^11.4.0",
     "@emotion/styled": "^11.9.3",
+    "@material-ui/icons": "^4.11.3",
+    "@mui/icons-material": "^5.8.4",
     "@mui/material": "^5.9.1",
     "@types/material-ui": "^0.21.12",
     "next": "12.2.3",
