@@ -10,6 +10,18 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  
+}
+
+@media (min-width: 600px) {
+  .grid { grid-template-columns: repeat(3, 1fr); }
+}
+
+.grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  gap: 1rem;
 }
 
 .footer {
@@ -63,14 +75,6 @@
   font-size: 1.1rem;
   font-family: Menlo, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono,
     Bitstream Vera Sans Mono, Courier New, monospace;
-}
-
-.grid {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  max-width: 800px;
 }
 
 .card {

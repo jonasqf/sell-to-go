@@ -1,22 +1,53 @@
-import { AppBar } from "@mui/material";
+import { AppBar, Grid } from "@mui/material";
 import Head from "next/head";
 import styles from "../styles/Home.module.css";
-import ProductCard from "../components/product/product"
+import ProductViewCard from "../components/Product/ProductViewCard";
+
+const productInfo = [
+  {
+    id: "1",
+    title: "Mixer Philips Walita",
+    price: "120,00",
+    description:
+      "Esse mixer é ótimo e está em perfeito estado, acompanha copo medidor.",
+    image: "https://images.philips.com/is/image/philipsconsumer/2dace1ee349c44af8ebdad1800d27e1e?$jpglarge$&wid=1250",
+  },
+  {
+    id: "2",
+    title: "Termica Chimarrita 2 litros",
+    price: "20,00",
+    description:
+      "Essa termica é muito boa.",
+    image: "https://images.colombo.com.br/produtos/261850/261850_228688_30601530570_0_g_g.jpg?ims=450x450",
+  },
+  {
+    id: "3",
+    title: "Jarra de vidro 1.5 litros",
+    price: "20,00",
+    description:
+      "Essa jarra é muito boa.",
+    image: "data:image/jpeg;base64,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",
+  },
+];
 
 export default function Home() {
-	return (
-		<div className={styles.container}>
-			<Head>
-				<title>Sell to Go!</title>
-				<link rel="icon" href="/favicon.ico" />
-			</Head>
-      
-			<main className={styles.main}>
-      <AppBar>MENU</AppBar>
-      <div>
-        <ProductCard></ProductCard>
-      </div>
-			</main>
-		</div>
-	);
+  return (
+    <div className={styles.container}>
+      <Head>
+        <title>Sell to Go!</title>
+        <link rel="icon" href="/favicon.ico" />
+      </Head>
+
+      <main className={styles.main}>
+        <AppBar>MENU</AppBar>
+        <div >
+          <Grid container spacing={8} className={styles.grid}>
+          {productInfo.map((post) => (
+              <ProductViewCard key={post.title} data={post} />
+            ))}
+          </Grid>
+        </div>
+      </main>
+    </div>
+  );
 }
