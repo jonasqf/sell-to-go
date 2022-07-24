@@ -10,10 +10,6 @@ import Typography from '@mui/material/Typography';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import ShareIcon from '@mui/icons-material/Share';
 
-interface ExpandMoreProps extends IconButtonProps {
-  expand: boolean;
-}
-
 interface ProductViewCardProps {
   data :  {
     id: string;
@@ -24,24 +20,8 @@ interface ProductViewCardProps {
   };
 }
 
-const ExpandMore = styled((props: ExpandMoreProps) => {
-  const { expand, ...other } = props;
-  return <IconButton {...other} />;
-})(({ theme, expand }) => ({
-  transform: !expand ? 'rotate(0deg)' : 'rotate(180deg)',
-  marginLeft: 'auto',
-  transition: theme.transitions.create('transform', {
-    duration: theme.transitions.duration.shortest,
-  }),
-}));
-
 export default function ProductViewCard(props: ProductViewCardProps) {
-  const [expanded, setExpanded] = React.useState(false);
   const { data } = props;
-
-  const handleExpandClick = () => {
-    setExpanded(!expanded);
-  };
 
   return (
     <Card sx={{ maxWidth: 360 }}>
@@ -65,13 +45,14 @@ export default function ProductViewCard(props: ProductViewCardProps) {
         </Typography>
       </CardContent>
       <CardActions disableSpacing>
-        <IconButton aria-label="Demonstrar enteresse">
+        <IconButton aria-label="Demonstrar interesse">
           <FavoriteIcon />
         </IconButton>
         <IconButton aria-label="Compartilhar">
           <ShareIcon />
         </IconButton>
       </CardActions>
+      
     </Card>
   );
 }
